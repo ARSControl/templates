@@ -1,0 +1,142 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					IMPOSTAZIONE TEMPLATE DOCUMENTO					  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,twoside,a4paper]{book}
+\usepackage[greek, italian]{babel}		%per sillabazione
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{textcomp, gensymb} 
+\usepackage{newlfont}
+\usepackage{marvosym}
+\usepackage{siunitx}
+\usepackage{subfigure}	%per immagini affiancate
+\usepackage{color}
+\usepackage[left=3.5cm,top=3cm,right=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{psfrag}
+\usepackage{bm} %per simboli greci maiuscoli \bm{\mu}
+\usepackage{makeidx}
+\usepackage{float}
+\usepackage[linesnumbered,vlined,ruled,commentsnumbered]{algorithm2e}
+\usepackage{epigraph}
+\usepackage{array, booktabs, multirow, tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\usepackage{enumitem}
+\usepackage{epstopdf}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest,compat/show suggested version=false}
+
+\usepackage{fancyhdr}   %impaginazione
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{\rightmark}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+\headheight = 15.0pt
+\footskip = 1.5cm
+\voffset = 0.5cm
+\usepackage[font={small,it}]{caption}
+
+\linespread{1.3}\selectfont
+
+\makeatletter  %per fare in stile FANCY tutte le pagine
+\let\ps@plain=\ps@fancy
+\makeatother
+
+\makeatletter    %per INSERIRE PAG BIANCA NELLE PAG. PARI DOPO FINE CAPITOLO
+\def\cleardoublepage{\clearpage\if@twoside
+	\ifodd\c@page
+	\else\hbox{}\thispagestyle{empty}\newpage
+	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\DeclareCaptionType{Algoritmo}
+\DeclareCaptionType{Tabella}
+
+\usepackage{listings}
+\lstset{language=C++,
+	breaklines=true}
+\lstset{literate=
+	{~}{{\url{~}}}1
+}
+\lstset{language=C++,
+	basicstyle=\ttfamily\footnotesize
+}
+
+% Definitions
+\def\texttilde{{\raise.17ex\hbox{$\scriptstyle\sim$}}}
+
+% Paragraph Editor
+\usepackage[parfill]{parskip}
+\parskip = \baselineskip   % Insert Blank Line Between Paragraph
+\setlength\parindent{24pt} % Paragraph Indentation Lenght
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					    IMPOSTAZIONI BIBLIOGRAFIA   				  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{csquotes}
+\usepackage[backend=biber,sorting=none,natbib=true,doi=false,url=false,isbn=false]{biblatex}
+
+% Make Bold Author Names
+\DeclareNameFormat{given-family-bold}{\mkbibbold{%
+  \ifgiveninits
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiveni}
+      {\namepartprefix}
+      {\namepartsuffix}}
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}}%
+  \usebibmacro{name:andothers}}}
+\DeclareNameAlias{author}{given-family-bold}
+
+% Remove Addendum e Notes From Bibliography
+\AtEveryBibitem{\clearfield{note}\clearfield{addendum}}
+\AtEveryCitekey{\clearfield{note}\clearfield{addendum}}
+
+\usepackage{hyperref}
+\definecolor{myGreen}{RGB}{0,160,0}
+ %\hypersetup{colorlinks = true, linkcolor = blue, citecolor = green}
+\hypersetup{colorlinks = true, linkcolor = black, citecolor = black, urlcolor = black}
+
+\newbibmacro{string+url}[1]{%
+  \iffieldundef{doi}{%
+    \iffieldundef{url}{%
+      \iffieldundef{isbn}{%
+        \iffieldundef{issn}{%
+          #1%
+        }{%
+          \href{http://books.google.com/books?vid=ISSN\thefield{issn}}{#1}%
+        }%
+      }{%
+        \href{http://books.google.com/books?vid=ISBN\thefield{isbn}}{#1}%
+      }%
+    }{%
+      \href{\thefield{url}}{#1}%
+    }%
+  }{%
+    \href{http://dx.doi.org/\thefield{doi}}{#1}%
+  }%
+}
+
+\DeclareFieldFormat{title}{\usebibmacro{string+url}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article,incollection]{title}%
+    {\usebibmacro{string+url}{\mkbibquote{#1}}}
+
+\addbibresource{bibliography.bib}

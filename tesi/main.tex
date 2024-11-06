@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					IMPOSTAZIONE TEMPLATE DOCUMENTO					  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Impostazioni/Template}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%							FRONTESPIZIO 					  		  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+    \input{Impostazioni/Titolo}
+
+	\frontmatter %inizio numerazione romana
+	\pagenumbering{Roman}
+	\newpage
+	\cleardoublepage
+	\newpage
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%								FRASE	 					  		  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\null \vspace {\stretch {1}}
+	\begin{flushright}
+		\textit{"Custom\\Sentence"}\\
+	\end{flushright}
+	\vspace {\stretch {2}}\null
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%							  SOMMARIO 					  		 	  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    % massimo di sei pagine, articolato nei seguenti punti: 
+    % motivazioni della tesi, metodi di indagine, risultati ottenuti.
+	
+	\chapter*{Sommario}
+	
+	    Text...
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%								CAPITOLI 					  		  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+	\newpage
+	\cleardoublepage
+	\newpage
+	
+	\linespread{1.4}\selectfont
+	\tableofcontents
+	\linespread{1.3}\selectfont
+
+	\mainmatter %inizio numerazione normale
+	
+	\input{Capitoli/Capitolo 1 - Introduzione}
+	\input{Capitoli/Capitolo 2 - ...}
+	\input{Capitoli/Capitolo N - Conclusione e Sviluppi Futuri}
+	\input{Ringraziamenti}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%							BIBLIOGRAFIA 					  		  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \printbibliography
+
+\end{document}}
