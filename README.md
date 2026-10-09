@@ -9,5 +9,7 @@ templates/
 ├── presentations/  # Template di presentazione PowerPoint
 │   ├── slide_unimore_ars.pptx       # Template UNIMORE - ARS
 │   └── slide_unimore_ARSXFIS.pptx   # Template UNIMORE - ARS x FIS
+├── posters/        # Template di poster PowerPoint
+│   └── ICRA26-poster-horizontal.pptx
 └── thesis/         # Template LaTeX per tesi (vedi thesis/README.md)
 ```
