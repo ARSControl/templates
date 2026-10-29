@@ -11,5 +11,6 @@ templates/
 │   └── slide_unimore_ARSXFIS.pptx   # Template UNIMORE - ARS x FIS
 ├── posters/        # Template di poster PowerPoint
 │   └── ICRA26-poster-horizontal.pptx
+│   └── ICRA26-poster-A0-vertical.pptx
 └── thesis/         # Template LaTeX per tesi (vedi thesis/README.md)
 ```
